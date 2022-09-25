@@ -1,10 +1,8 @@
 const express = require("express");
+const routes = require("./routes");
+const logger = require('./utils')
 const app = express();
-
+app.use(logger);
 app.use(express.json());
-
-app.get("/", (req, res) => {
-    res.json({ name: "Sang" });
-});
-
+app.use("/", routes);
 module.exports = app;
