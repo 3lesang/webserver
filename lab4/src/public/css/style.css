@@ -1,0 +1,36 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+a {
+	text-decoration: none;
+	color: unset;
+}
+body {
+}
+
+header {
+}
+
+main {
+}
+
+footer {
+}
+
+.post {
+	display: inline-block;
+	background-color: #fff;
+
+}
+
+.new {
+	height: 60px;
+	width: 60px;
+	background-color: blue;
+}
+.new:hover {
+	cursor: pointer;
+}

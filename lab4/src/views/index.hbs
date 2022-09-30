@@ -1,0 +1,14 @@
+<main>
+	{{#each posts}}
+		<a href='/post/{{id}}'>
+			<div class='post'>
+				<img src='https://picsum.photos/400/400?random={{id}}' />
+				<p>{{auth}} {{created_at}}</p>
+				<h3>{{title}} </h3>
+				<p>{{content}}</p>
+				<button>edit</button>
+				<button>delete</button>
+			</div>
+		</a>
+	{{/each}}
+</main>
