@@ -7,7 +7,7 @@ const {
 	addComment,
 } = require('../controllers/post.controller');
 
-router.get('/:id', getPost);
+router.get('/:slug', getPost);
 router.post('/', addPost);
 router.post('/:id', updatePost);
 router.delete('/', deletePost);

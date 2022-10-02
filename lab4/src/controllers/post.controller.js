@@ -1,8 +1,8 @@
 const { PostService } = require('../services');
-const { currentDate } = require('../utils');
+const { currentDate, toSlug } = require('../utils');
 const getPost = async (req, res) => {
-	const id = req.params.id;
-	const post = await PostService.findOne({ id });
+	const slug = req.params.slug;
+	const post = await PostService.findOne({ slug });
 	res.render('post', { post: post });
 };
 const addPost = async (req, res) => {
@@ -10,6 +10,7 @@ const addPost = async (req, res) => {
 		id: String(Date.now()),
 		title: req.body.title,
 		thumb: `https://picsum.photos/400/400?random=${Math.random()}`,
+		slug: toSlug(req.body.title),
 		content: req.body.content,
 		comments: [],
 		auth: 'sang',

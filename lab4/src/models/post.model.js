@@ -10,9 +10,9 @@ class Post {
 		});
 	}
 
-	findOne({ id }) {
+	findOne({ slug }) {
 		return new Promise((resolve, reject) => {
-			return resolve(this.#data.find((post) => post.id === id));
+			return resolve(this.#data.find((post) => post.slug === slug));
 		});
 	}
 	findIndex({ id }) {

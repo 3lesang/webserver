@@ -4,8 +4,8 @@ class PostService {
 	async getAll() {
 		return await Post.getAll();
 	}
-	async findOne({ id }) {
-		return await Post.findOne({ id });
+	async findOne({ slug }) {
+		return await Post.findOne({ slug });
 	}
 	async addComment({ id }, data) {
 		return await Post.addComment({ id }, data);
