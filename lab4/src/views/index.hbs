@@ -1,14 +1,30 @@
+{{header}}
 <main>
 	{{#each posts}}
-		<a href='/post/{{id}}'>
-			<div class='post'>
-				<img src='https://picsum.photos/400/400?random={{id}}' />
+		<div class='post'>
+			<div>
 				<p>{{auth}} {{created_at}}</p>
-				<h3>{{title}} </h3>
-				<p>{{content}}</p>
-				<button>edit</button>
-				<button>delete</button>
+				<a href='/post/{{id}}'>
+					<img src='{{thumb}}' />
+					<h3>{{title}} </h3>
+					<p>{{content}}</p>
+				</a>
 			</div>
-		</a>
+			<button class='edit' data-id={{id}}>edit</button>
+			<form action='/post' method='put'>
+				<label for=''>tieu de</label>
+				<input type='text' name='title' />
+
+				<label for=''>thumbnail</label>
+				<input type='file' name='file' />
+
+				<label for=''>noi dung</label>
+				<textarea name='content' cols='30' rows='10'></textarea>
+				<input type='submit' />
+			</form>
+			<button class='delete' data-id={{id}}>delete</button>
+		</div>
+
 	{{/each}}
 </main>
+{{footer}}

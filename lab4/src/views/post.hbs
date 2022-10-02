@@ -1,0 +1,13 @@
+<artical>
+	<p>{{post.title}}</p>
+	<p>{{post.content}}</p>
+	<form action='/post/{{post.id}}/comment' method='post'>
+		<textarea id='comment' name='comment' cols='30' rows='10'></textarea>
+		<button type='submit'>send</button>
+	</form>
+	<ul>
+		{{#each post.comments}}
+			<li>{{content}}</li>
+		{{/each}}
+	</ul>
+</artical>

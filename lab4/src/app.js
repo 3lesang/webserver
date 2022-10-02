@@ -2,7 +2,7 @@ const express = require('express');
 const hbs = require('hbs');
 const path = require('path');
 const routes = require('./routes');
-const logger = require('./utils');
+const { logger } = require('./utils');
 const app = express();
 
 app.use(express.static(path.join(__dirname, '/public')));
