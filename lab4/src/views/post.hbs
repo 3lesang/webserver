@@ -1,13 +1,35 @@
-<artical>
-	<p>{{post.title}}</p>
+{{>header}}
+<article>
+	<h1>{{post.title}}</h1>
 	<p>{{post.content}}</p>
-	<form action='/post/{{post.id}}/comment' method='post'>
-		<textarea id='comment' name='comment' cols='30' rows='10'></textarea>
-		<button type='submit'>send</button>
-	</form>
-	<ul>
-		{{#each post.comments}}
-			<li>{{content}}</li>
-		{{/each}}
-	</ul>
-</artical>
+	<div class='comment'>
+		<form
+			action='/post/{{post.id}}/comment'
+			method='post'
+			class='cmt__form'
+		>
+			<textarea
+				id='comment'
+				name='comment'
+				cols='80'
+				rows='5'
+				class='cmt__input'
+				placeholder='Hãy chia sẻ cảm nghĩ của bạn về bài viết!'
+			></textarea>
+			<button type='submit' class='button'>Gửi</button>
+		</form>
+		<ul>
+			{{#each post.comments}}
+				<li>
+					<p>
+						<strong>{{auth}}</strong>
+						<small>{{created_at}}</small>
+					</p>
+					<p>{{content}}</p>
+				</li>
+			{{/each}}
+		</ul>
+	</div>
+
+</article>
+{{>footer}}

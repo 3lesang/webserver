@@ -2,8 +2,6 @@ const { PostService } = require('../services');
 const { currentDate } = require('../utils');
 const getPost = async (req, res) => {
 	const id = req.params.id;
-	const query = req.query.q;
-	console.log(query)
 	const post = await PostService.findOne({ id });
 	res.render('post', { post: post });
 };
@@ -26,6 +24,15 @@ const deletePost = async (req, res) => {
 	const status = await PostService.delete({ id });
 	res.json({ status: 'ok' });
 };
+const updatePost = async (req, res) => {
+	const id = req.params.id;
+	const data = { id, ...req.body };
+	const status = await PostService.update(data);
+	if (status) {
+		res.redirect(req.get('referer'));
+	}
+};
+
 const addComment = async (req, res) => {
 	const id = req.params.id;
 	const content = req.body.comment;
@@ -41,6 +48,7 @@ const addComment = async (req, res) => {
 module.exports = {
 	getPost,
 	addPost,
-	addComment,
+	updatePost,
 	deletePost,
+	addComment,
 };
