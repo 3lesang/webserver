@@ -2,6 +2,13 @@
 <main>
 	{{#each posts}}
 		<div class='post'>
+			<div class='cicle'>
+				<i class='fa-solid fa-ellipsis-vertical'></i>
+			</div>
+			<ul class='menu'>
+				<li class='edit menu__item' data-id={{id}}>Chỉnh sửa</li>
+				<li class='delete menu__item' data-id={{id}}>Xóa</li>
+			</ul>
 			<div>
 				<a href='/post/{{id}}'>
 					<img src='{{thumb}}' class='thumb' />
@@ -13,11 +20,6 @@
 					</p>
 				</a>
 			</div>
-			<button
-				class='edit btn'
-				data-id={{id}}
-				style='background-color: orange'
-			>Chỉnh sửa</button>
 			<div id='modal__{{id}}' class='modal'>
 				<form action='/post/{{id}}' method='post' class='formAdd'>
 					<div class='container'>
@@ -32,7 +34,6 @@
 					<div class='container'>
 						<input type='file' name='thumb' />
 					</div>
-
 					<div class='container'>
 						<textarea
 							id=''
@@ -40,19 +41,13 @@
 							cols='30'
 							rows='10'
 							class='input'
-							spellcheck=false
+							spellcheck='false'
 							placeholder='Nội dung bài viết'
 						>{{content}}</textarea>
 					</div>
 					<button type='submit' class='button'>Lưu</button>
 				</form>
 			</div>
-
-			<button
-				class='delete btn'
-				data-id={{id}}
-				style='background-color: red'
-			>Xóa</button>
 		</div>
 	{{else}}
 		<p>Không có bài blog nào hãy thêm bài đi!</p>

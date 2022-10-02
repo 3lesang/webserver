@@ -2,6 +2,7 @@ const deleteBtn = document.getElementsByClassName('delete');
 const editBtn = document.getElementsByClassName('edit');
 const addBtn = document.getElementById('add');
 const modal = document.getElementById('addModal');
+const cicle = document.getElementsByClassName('cicle');
 
 addBtn.onclick = function () {
 	modal.style.display = 'block';
@@ -12,10 +13,17 @@ addBtn.onclick = function () {
 	};
 };
 
+Array.from(cicle).forEach((btn) => {
+	btn.addEventListener('click', () => {
+		const post = btn.parentElement;
+		const menu = post.querySelector('.menu');
+		menu.classList.toggle('show');
+	});
+});
 Array.from(deleteBtn).forEach((btn) => {
 	btn.addEventListener('click', async () => {
 		if (confirm('Ban co muon xoa khong?')) {
-			btn.parentElement.remove();
+			btn.parentElement.parentElement.remove();
 			const id = btn.dataset.id;
 			const res = await fetch('/post', {
 				method: 'DELETE',
