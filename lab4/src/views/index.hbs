@@ -21,28 +21,30 @@
 			<div id='modal__{{id}}' class='modal'>
 				<form action='/post/{{id}}' method='post' class='formAdd'>
 					<div class='container'>
-						<label for='title'>Title</label>
 						<input
 							type='text'
 							name='title'
-							class='input'
+							class='input title__place'
+							placeholder='Tiêu đề bài viết....'
 							value='{{title}}'
 						/>
 					</div>
 					<div class='container'>
-						<label for='thumb'>Thumbnail</label>
 						<input type='file' name='thumb' />
 					</div>
+
 					<div class='container'>
-						<label for='content'>Content</label>
 						<textarea
+							id=''
 							name='content'
 							cols='30'
-							spellcheck=false
 							rows='10'
+							class='input'
+							spellcheck=false
+							placeholder='Nội dung bài viết'
 						>{{content}}</textarea>
 					</div>
-					<input type='submit' class='button' />
+					<button type='submit' class='button'>Lưu</button>
 				</form>
 			</div>
 

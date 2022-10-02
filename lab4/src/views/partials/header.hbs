@@ -8,25 +8,28 @@
 	<div class='modal' id='addModal'>
 		<form action='/post' method='post' class='formAdd' id='formAdd'>
 			<div class='container'>
-				<label for='title'>Title</label>
-				<input type='text' name='title' class='input' />
+				<input
+					type='text'
+					name='title'
+					class='input title__place'
+					placeholder='Tiêu đề bài viết....'
+				/>
 			</div>
 			<div class='container'>
-				<label for='thumb'>Thumbnail</label>
 				<input type='file' name='thumb' />
 			</div>
 
 			<div class='container'>
-				<label for='content'>Content</label>
 				<textarea
 					id=''
 					name='content'
 					cols='30'
 					rows='10'
 					class='input'
+					placeholder='Nội dung bài viết'
 				></textarea>
 			</div>
-			<input type='submit' class='button' />
+			<button type="submit" class="button">Đăng</button>
 		</form>
 	</div>
 
