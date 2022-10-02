@@ -138,8 +138,10 @@ article {
 	height: 40px;
 	border-radius: 99%;
 	cursor: pointer;
-	background-color: rgba(0, 0, 0, 0.4);
 	color: white;
+}
+.cicle:hover {
+	background-color: rgba(0, 0, 0, 0.4);
 }
 .new:hover {
 	cursor: pointer;
