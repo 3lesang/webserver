@@ -27,7 +27,8 @@ const deletePost = async (req, res) => {
 };
 const updatePost = async (req, res) => {
 	const id = req.params.id;
-	const data = { id, ...req.body };
+	const slug = toSlug(req.body.title);
+	const data = { id, slug, ...req.body };
 	const status = await PostService.update(data);
 	if (status) {
 		res.redirect(req.get('referer'));
