@@ -1,5 +1,7 @@
+const { v4: uuidv4 } = require('uuid');
 const { PostService } = require('../services');
 const { currentDate, toSlug } = require('../utils');
+
 const getPost = async (req, res) => {
 	const slug = req.params.slug;
 	const post = await PostService.findOne({ slug });
@@ -7,10 +9,10 @@ const getPost = async (req, res) => {
 };
 const addPost = async (req, res) => {
 	const data = {
-		id: String(Date.now()),
+		id: uuidv4(),
 		title: req.body.title,
 		thumb: `https://picsum.photos/400/400?random=${Math.random()}`,
-		slug: toSlug(req.body.title),
+		slug: toSlug(req.body.title + ' ' + uuidv4()),
 		content: req.body.content,
 		comments: [],
 		auth: 'sang',
@@ -27,7 +29,7 @@ const deletePost = async (req, res) => {
 };
 const updatePost = async (req, res) => {
 	const id = req.params.id;
-	const slug = toSlug(req.body.title);
+	const slug = toSlug(req.body.title + ' ' + uuidv4());
 	const data = { id, slug, ...req.body };
 	const status = await PostService.update(data);
 	if (status) {
