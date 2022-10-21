@@ -1,2 +1,10 @@
-#run api: npm start
-#run client: npm run dev
+Start api
+
+```bash
+npm start
+```
+Start client
+
+```bash
+npm run dev
+```
